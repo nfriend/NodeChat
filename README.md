@@ -1,4 +1,4 @@
 WebChat
 ========
 
-A simple project I'm using to familiarize myself with a few new (to me) technologies: Node.js, AngularJS, LESS, Grunt, and Bower.
+A simple application to acquaint myself with Node.js, AngularJS, SASS, Grunt, Bower, and Yoeman.
