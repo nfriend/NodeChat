@@ -18,9 +18,9 @@
 
 <div class="row chat-input-container">
     <div class="col-sm-10 col-xs-12">
-        <textarea class="chat-input form-control" rows="2" />
+        <textarea class="chat-input form-control" ng-model="chatInput" ng-keydown="chatInputKeyDown($event)" rows="2" placeholder="Press Shift+Enter to send" />
     </div>
     <div class="col-sm-2 col-xs-12">
-        <div class="send-button btn btn-success btn-lg"><span>Send</span></div>
+        <div class="send-button btn btn-success btn-lg" ng-click="send()"><span>Send</span></div>
     </div>
 </div>
