@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('WebChat', [
-    'WebChat.controllers',
-    'WebChat.directives',
+angular.module('NodeChat', [
+    'NodeChat.controllers',
+    'NodeChat.directives',
     'ngCookies',
     'ngResource',
     'ngSanitize',

@@ -3,7 +3,7 @@
 // note: it's not recommended to uses a direct reference to the window object (as in $(window) ),
 // but this doesn't seem to work when using the jQuery alias angular.element($window)
 
-angular.module('WebChat.directives', []).
+angular.module('NodeChat.directives', []).
     directive('resize', [function ($window) {
         return function (scope, element, attr) {
             //var w = angular.element($window);

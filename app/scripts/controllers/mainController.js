@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('WebChat.controllers', [])
+angular.module('NodeChat.controllers', [])
     .controller('mainController', function ($scope) {
         $scope.test = "window";
         $scope.array = [];
