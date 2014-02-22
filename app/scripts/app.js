@@ -1,18 +1,20 @@
 'use strict';
 
-angular.module('webChatApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute'
+angular.module('WebChat', [
+    'WebChat.controllers',
+    'WebChat.directives',
+    'ngCookies',
+    'ngResource',
+    'ngSanitize',
+    'ngRoute'
 ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+    .config(function ($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'views/main.html',
+                controller: 'testController'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+    });
