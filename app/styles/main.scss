@@ -30,7 +30,11 @@ hr {
 
 /* Custom page header */
 .header {
+	position: relative;
+	z-index: 10;
 	border-bottom: 1px solid #e5e5e5;
+	background: linear-gradient(0deg, rgba(255,255,255,0), rgba(255,255,255,.7) 50%, #ffffff 100%);
+	margin-right: 25px;
 }
 
 /* Make the masthead heading the same height as the navigation */
@@ -61,6 +65,14 @@ hr {
 textarea.form-control.chat-input {
 	resize: none;
 	height: 54px;
+}
+
+.chat-container {
+	margin-top: -80px;
+}
+
+.chat-top-spacer {
+	margin-top: 60px;
 }
 
 

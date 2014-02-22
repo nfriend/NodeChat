@@ -1,19 +1,22 @@
 <div class="header">
-    <div class="pull-right text-muted hidden-xs">
+    <!--<div class="pull-right text-muted hidden-xs">
         <h3>by Nathan Friend</h3>
-    </div>
+    </div>-->
     <h1 class="text-muted">WebChat</h1>
 </div>
 
 <div class="chat-container">
-    <div class="resize" resize height-offset="260" ignore="w" ng-style="style()">
-        <p>Chat area</p>
+    <div class="resize" resize height-offset="180" ignore="w" ng-style="style()">
+        <div class="chat-top-spacer">&nbsp;</div>
+        <div ng-repeat="item in array">
+            <p>{{item.text}}</p>
+        </div>
     </div>
 </div>
 
 <hr />
 
-<div class="row">
+<div class="row chat-input-container">
     <div class="col-sm-10 col-xs-12">
         <textarea class="chat-input form-control" rows="2" />
     </div>

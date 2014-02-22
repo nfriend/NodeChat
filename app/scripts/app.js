@@ -12,7 +12,7 @@ angular.module('WebChat', [
         $routeProvider
             .when('/', {
                 templateUrl: 'views/main.html',
-                controller: 'testController'
+                controller: 'mainController'
             })
             .otherwise({
                 redirectTo: '/'
