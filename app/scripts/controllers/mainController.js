@@ -2,18 +2,33 @@
 
 angular.module('NodeChat.controllers', [])
     .controller('mainController', function ($scope) {
+        var isMyMessage = true;
+        
         $scope.test = "window";
         $scope.array = [];
         $scope.chatInput = "";
 
         for (var i = 0; i < 50; i++) {
-            $scope.array.push({"text": "hello " + i});
+            $scope.array.push({
+                "name": "Nathan " + i,
+                "message": "hello " + i,
+                "isMyMessage": isMyMessage
+            });
+
+            isMyMessage = i % 3 === 0;
         }
 
         $scope.send = function () {
-            console.log("sdfsd");
-            $scope.array.push({ "text": $scope.chatInput });
+            $scope.array.push({
+                "name": "Nathan",
+                "message": $scope.chatInput,
+                "isMyMessage" : isMyMessage
+            });
+
+            isMyMessage = !isMyMessage;
+
             $scope.chatInput = "";
+            $scope.scrollToBottom();
         }
 
         $scope.chatInputKeyDown = function (event) {

@@ -2,6 +2,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'resize.scss';
+@import 'chat-message.scss';
 
 .browsehappy {
 	margin: 0.2em 0;
@@ -32,9 +33,9 @@ hr {
 .header {
 	position: relative;
 	z-index: 10;
-	border-bottom: 1px solid #e5e5e5;
-	background: linear-gradient(0deg, rgba(255,255,255,0), rgba(255,255,255,.7) 50%, #ffffff 100%);
+	background: linear-gradient(0deg, rgba(255,255,255,0), rgba(255,255,255,.5) 50%, #ffffff 100%);
 	margin-right: 25px;
+	margin-bottom: 41px;
 }
 
 /* Make the masthead heading the same height as the navigation */
@@ -55,11 +56,6 @@ hr {
 .send-button {
 	height: 54px;
 	width: 100%;
-
-	> * {
-		position: relative;
-		top: 4px;
-	}
 }
 
 textarea.form-control.chat-input {
@@ -89,14 +85,6 @@ textarea.form-control.chat-input {
 	.footer {
 		padding-left: 0;
 		padding-right: 0;
-	}
-	/* Space out the masthead */
-	.header {
-		margin-bottom: 30px;
-	}
-	/* Remove the bottom border on the jumbotron for visual effect */
-	.jumbotron {
-		border-bottom: 0;
 	}
 }
 

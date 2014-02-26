@@ -1,0 +1,48 @@
+.chat-message-container {
+	margin-right: 12px;
+}
+
+.chat-message {
+	position: relative;
+	width: 100%;
+	clear: both;
+	border-top: 1px solid black;
+	min-height: 40px;
+	background: #eee;
+
+	.name-container {
+		position: absolute;
+		width: 20%;
+		height: 100%;
+
+		&.pull-right {
+			right: 0;
+		}
+
+		&.pull-left {
+			left: 0;
+		}
+
+		div {
+//			background: $brand-primary;
+			background: blue;
+			color: white;
+			float: inherit;
+			height: 100%;
+		}
+	}
+
+	.message-container {
+		position: relative;
+		width: 80%;
+	}
+
+	.text-left {
+		text-align: left;
+		float: left;
+	}
+	.text-right {
+		text-align: right;
+		float: right;
+	}
+}

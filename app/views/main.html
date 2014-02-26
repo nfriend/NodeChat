@@ -6,10 +6,10 @@
 </div>
 
 <div class="chat-container">
-    <div class="resize" resize height-offset="180" ignore="w" ng-style="style()">
+    <div class="resize" resize height-offset="180" ignore="w" ng-style="style()" scroll-to-bottom>
         <div class="chat-top-spacer">&nbsp;</div>
-        <div ng-repeat="item in array">
-            <p>{{item.text}}</p>
+        <div class="chat-message-container" ng-repeat="item in array">
+            <div class="chat-message" chat-message name="item.name" message="item.message" is-my-message="item.isMyMessage" />
         </div>
     </div>
 </div>
@@ -18,9 +18,10 @@
 
 <div class="row chat-input-container">
     <div class="col-sm-10 col-xs-12">
-        <textarea class="chat-input form-control" ng-model="chatInput" ng-keydown="chatInputKeyDown($event)" rows="2" placeholder="Press Shift+Enter to send" />
+        <textarea class="chat-input form-control" ng-model="chatInput" ng-keydown="chatInputKeyDown($event)" 
+                  rows="2" placeholder="Press Shift+Enter to send" />
     </div>
     <div class="col-sm-2 col-xs-12">
-        <div class="send-button btn btn-success btn-lg" ng-click="send()"><span>Send</span></div>
+        <button class="send-button btn btn-success btn-lg" ng-click="send()"><span>Send</span></button>
     </div>
 </div>
