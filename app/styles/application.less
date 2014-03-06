@@ -1,0 +1,87 @@
+@import "../bower_components/bootstrap/less/bootstrap.less";
+@import "../bower_components/fontawesome/less/font-awesome.less";
+
+@import "chat-message.less";
+@import "resize.less";
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+hr {
+    border-top: 1px solid #e5e5e5;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(0deg, rgba(255,255,255,0), rgba(255,255,255,.5) 50%, #ffffff 100%);
+    margin-right: 25px;
+    margin-bottom: 41px;
+    /* Make the masthead heading the same height as the navigation */
+    .h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 40px;
+        padding-bottom: 19px;
+    }
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.send-button {
+    height: 54px;
+    width: 100%;
+}
+
+textarea.form-control.chat-input {
+    resize: none;
+    height: 54px;
+}
+
+.chat-container {
+    margin-top: -80px;
+}
+
+.chat-top-spacer {
+    margin-top: 60px;
+}
+
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: @screen-sm-min) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: @screen-xs-max) {
+    .send-button {
+        margin-top: 10px;
+    }
+}
