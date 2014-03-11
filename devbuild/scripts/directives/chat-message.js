@@ -3,14 +3,14 @@
 angular.module('nodeChat.directives').
     directive('chatMessage', [function () {
         return {
-            templateUrl: "views/chat-message.html",
+            templateUrl: 'views/chat-message.html',
             scope: {
                 name: '=',
                 message: '=',
-                isMyMessage: "="
+                isMyMessage: '='
             },
-            link: function (scope, element, attr) {
+            //link: function (scope, element, attr) {
 
-            }
+            //}
         };
     }]);

@@ -4,10 +4,14 @@
 @import "chat-message.less";
 @import "resize.less";
 
+@brand-neutral: #999;
+
 /* Space out content a bit */
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+
+    font-family: "Open Sans", sans-serif
 }
 
 hr {
@@ -26,9 +30,9 @@ hr {
 .header {
     position: relative;
     z-index: 10;
-    background: linear-gradient(0deg, rgba(255,255,255,0), rgba(255,255,255,.5) 50%, #ffffff 100%);
+    background: linear-gradient(0deg, rgba(255,255,255,0), rgba(255,255,255,.9) 50%, #ffffff 100%);
     margin-right: 25px;
-    margin-bottom: 41px;
+    padding-bottom: 41px;
     /* Make the masthead heading the same height as the navigation */
     .h3 {
         margin-top: 0;
@@ -48,6 +52,8 @@ hr {
 .send-button {
     height: 54px;
     width: 100%;
+    background-color: lighten(@brand-success, 10%);
+    border-color: lighten(#4cae4c, 10%);
 }
 
 textarea.form-control.chat-input {

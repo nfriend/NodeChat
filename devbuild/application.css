@@ -8872,35 +8872,141 @@ button.close {
   position: relative;
   width: 100%;
   clear: both;
-  border-top: 1px solid black;
   min-height: 40px;
-  background: #eee;
+}
+
+.chat-message .top-border {
+  width: 100%;
+  height: 2px;
+  margin-top: 20px;
 }
 
 .chat-message .name-container {
   position: absolute;
   width: 20%;
-  height: 100%;
 }
 
 .chat-message .name-container.pull-right {
   right: 0;
 }
 
+.chat-message .name-container.pull-right div {
+  border-bottom-right-radius: 6px;
+}
+
 .chat-message .name-container.pull-left {
   left: 0;
 }
 
+.chat-message .name-container.pull-left div {
+  border-bottom-left-radius: 6px;
+}
+
 .chat-message .name-container div {
-  background: blue;
   color: white;
   float: inherit;
   height: 100%;
+  padding: 10px;
+  padding-top: 8px;
+}
+
+.chat-message.blue .name-container div {
+  background: #6aa3d5;
+}
+
+.chat-message.blue .top-border.right-gradient {
+  background: -webkit-linear-gradient(180deg, #6aa3d5, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(270deg, #6aa3d5, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.blue .top-border.left-gradient {
+  background: -webkit-linear-gradient(0deg, #6aa3d5, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(90deg, #6aa3d5, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.green .name-container div {
+  background: #80c780;
+}
+
+.chat-message.green .top-border.right-gradient {
+  background: -webkit-linear-gradient(180deg, #80c780, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(270deg, #80c780, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.green .top-border.left-gradient {
+  background: -webkit-linear-gradient(0deg, #80c780, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(90deg, #80c780, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.light-blue .name-container div {
+  background: #85d0e7;
+}
+
+.chat-message.light-blue .top-border.right-gradient {
+  background: -webkit-linear-gradient(180deg, #85d0e7, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(270deg, #85d0e7, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.light-blue .top-border.left-gradient {
+  background: -webkit-linear-gradient(0deg, #85d0e7, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(90deg, #85d0e7, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.orange .name-container div {
+  background: #f4c37d;
+}
+
+.chat-message.orange .top-border.right-gradient {
+  background: -webkit-linear-gradient(180deg, #f4c37d, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(270deg, #f4c37d, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.orange .top-border.left-gradient {
+  background: -webkit-linear-gradient(0deg, #f4c37d, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(90deg, #f4c37d, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.red .name-container div {
+  background: #e27c79;
+}
+
+.chat-message.red .top-border.right-gradient {
+  background: -webkit-linear-gradient(180deg, #e27c79, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(270deg, #e27c79, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.red .top-border.left-gradient {
+  background: -webkit-linear-gradient(0deg, #e27c79, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(90deg, #e27c79, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.gray .name-container div {
+  background: #b3b3b3;
+}
+
+.chat-message.gray .top-border.right-gradient {
+  background: -webkit-linear-gradient(180deg, #b3b3b3, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(270deg, #b3b3b3, #ffffff 50%, #ffffff 100%);
+}
+
+.chat-message.gray .top-border.left-gradient {
+  background: -webkit-linear-gradient(0deg, #b3b3b3, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(90deg, #b3b3b3, #ffffff 50%, #ffffff 100%);
 }
 
 .chat-message .message-container {
   position: relative;
   width: 80%;
+  margin-top: 8px;
+  padding-bottom: 25px;
+}
+
+.chat-message .message-container.pull-left {
+  padding-left: 135px;
+}
+
+.chat-message .message-container.pull-right {
+  padding-right: 135px;
 }
 
 .chat-message .text-left {
@@ -8922,6 +9028,7 @@ button.close {
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
 }
 
 hr {
@@ -8942,10 +9049,10 @@ hr {
 .header {
   position: relative;
   z-index: 10;
-  background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, #ffffff 100%);
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, #ffffff 100%);
+  background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 50%, #ffffff 100%);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 50%, #ffffff 100%);
   margin-right: 25px;
-  margin-bottom: 41px;
+  padding-bottom: 41px;
   /* Make the masthead heading the same height as the navigation */
 }
 
@@ -8967,6 +9074,8 @@ hr {
 .send-button {
   height: 54px;
   width: 100%;
+  background-color: #80c780;
+  border-color: #6ebf6e;
 }
 
 textarea.form-control.chat-input {

@@ -9,7 +9,7 @@
     <div class="resize" resize height-offset="180" ignore="w" ng-style="style()" scroll-to-bottom>
         <div class="chat-top-spacer">&nbsp;</div>
         <div class="chat-message-container" ng-repeat="message in messages">
-            <div class="chat-message" chat-message name="message.name" message="message.message" is-my-message="message.isMyMessage" />
+            <div class="chat-message" ng-class="message.color" chat-message name="message.name" message="message.message" is-my-message="message.isMyMessage" />
         </div>
     </div>
 </div>
@@ -22,6 +22,6 @@
                   rows="2" placeholder="Press Shift+Enter to send" />
     </div>
     <div class="col-sm-2 col-xs-12">
-        <button class="send-button btn btn-success btn-lg" ng-click="send()"><span>Send</span></button>
+        <button class="btn btn-success btn-lg send-button" ng-click="send()"><span>Send</span></button>
     </div>
 </div>

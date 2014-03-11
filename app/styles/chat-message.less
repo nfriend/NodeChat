@@ -1,48 +1,178 @@
 .chat-message-container {
-	margin-right: 12px;
+    margin-right: 12px;
 }
 
 .chat-message {
-	position: relative;
-	width: 100%;
-	clear: both;
-	border-top: 1px solid black;
-	min-height: 40px;
-	background: #eee;
+    position: relative;
+    width: 100%;
+    clear: both;
+    min-height: 40px;
 
-	.name-container {
-		position: absolute;
-		width: 20%;
-		height: 100%;
+    .top-border {
+        width: 100%;
+        height: 2px;
+        margin-top: 20px;
+    }
 
-		&.pull-right {
-			right: 0;
-		}
+    .name-container {
+        position: absolute;
+        width: 20%;
 
-		&.pull-left {
-			left: 0;
-		}
+        &.pull-right {
+            right: 0;
 
-		div {
-//			background: $brand-primary;
-			background: blue;
-			color: white;
-			float: inherit;
-			height: 100%;
-		}
-	}
+            div {
+                border-bottom-right-radius: 6px;
+            }
+        }
 
-	.message-container {
-		position: relative;
-		width: 80%;
-	}
+        &.pull-left {
+            left: 0;
 
-	.text-left {
-		text-align: left;
-		float: left;
-	}
-	.text-right {
-		text-align: right;
-		float: right;
-	}
+            div {
+                border-bottom-left-radius: 6px;
+            }
+        }
+
+        div {
+            color: white;
+            float: inherit;
+            height: 100%;
+            padding: 10px;
+            padding-top: 8px;
+        }
+    }
+
+    &.blue {
+        .name-container {
+            div {
+                background: lighten(@brand-primary, 10%);
+            }
+        }
+
+        .top-border {
+            &.right-gradient {
+                background: linear-gradient(270deg, lighten(@brand-primary, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+
+            &.left-gradient {
+                background: linear-gradient(90deg, lighten(@brand-primary, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+        }
+    }
+
+    &.green {
+        .name-container {
+            div {
+                background: lighten(@brand-success, 10%);
+            }
+        }
+
+        .top-border {
+            &.right-gradient {
+                background: linear-gradient(270deg, lighten(@brand-success, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+
+            &.left-gradient {
+                background: linear-gradient(90deg, lighten(@brand-success, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+        }
+    }
+
+    &.light-blue {
+        .name-container {
+            div {
+                background: lighten(@brand-info, 10%);
+            }
+        }
+
+        .top-border {
+            &.right-gradient {
+                background: linear-gradient(270deg, lighten(@brand-info, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+
+            &.left-gradient {
+                background: linear-gradient(90deg, lighten(@brand-info, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+        }
+    }
+
+    &.orange {
+        .name-container {
+            div {
+                background: lighten(@brand-warning, 10%);
+            }
+        }
+
+        .top-border {
+            &.right-gradient {
+                background: linear-gradient(270deg, lighten(@brand-warning, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+
+            &.left-gradient {
+                background: linear-gradient(90deg, lighten(@brand-warning, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+        }
+    }
+
+    &.red {
+        .name-container {
+            div {
+                background: lighten(@brand-danger, 10%);
+            }
+        }
+
+        .top-border {
+            &.right-gradient {
+                background: linear-gradient(270deg, lighten(@brand-danger, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+
+            &.left-gradient {
+                background: linear-gradient(90deg, lighten(@brand-danger, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+        }
+    }
+
+    &.gray {
+        .name-container {
+            div {
+                background: lighten(@brand-neutral, 10%);
+            }
+        }
+
+        .top-border {
+            &.right-gradient {
+                background: linear-gradient(270deg, lighten(@brand-neutral, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+
+            &.left-gradient {
+                background: linear-gradient(90deg, lighten(@brand-neutral, 10%), rgba(255,255,255,1) 50%, #ffffff 100%);
+            }
+        }
+    }
+
+    .message-container {
+        position: relative;
+        width: 80%;
+        margin-top: 8px;
+        padding-bottom: 25px;
+
+        &.pull-left {
+            padding-left: 135px;
+        }
+
+        &.pull-right {
+            padding-right: 135px;
+        }
+    }
+
+    .text-left {
+        text-align: left;
+        float: left;
+    }
+
+    .text-right {
+        text-align: right;
+        float: right;
+    }
 }
