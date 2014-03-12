@@ -1,14 +1,17 @@
 <div class="header">
+    &nbsp;
     <!--<div class="pull-right text-muted hidden-xs">
         <h3>by Nathan Friend</h3>
     </div>-->
-    <h1 class="text-muted">NodeChat</h1>
+    <!--<h1 class="text-muted">NodeChat</h1>-->
 </div>
 
 <div class="chat-container">
     <div class="resize" resize height-offset="180" ignore="w" ng-style="style()" scroll-to-bottom>
-        <div class="chat-top-spacer">&nbsp;</div>
-        <div class="chat-message-container" ng-repeat="message in messages">
+        <div class="chat-top-spacer">
+            <h1 class="text-muted">NodeChat</h1>
+        </div>
+        <div class="chat-message-container" ng-repeat="message in messages" ng-class="{'left-aligned': !message.isMyMessage, 'right-aligned': message.isMyMessage}" >
             <div class="chat-message" ng-class="message.color" chat-message name="message.name" message="message.message" is-my-message="message.isMyMessage" />
         </div>
     </div>

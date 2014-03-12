@@ -1,5 +1,33 @@
 .chat-message-container {
     margin-right: 12px;
+
+    &.ng-enter {
+        transition: all 200ms cubic-bezier(0.335, 0.095, 0.070, 1.400), opacity 200ms linear;
+    }
+
+    &.left-aligned {
+        &.ng-enter {
+            margin-left: -200px;
+            opacity: 0;
+
+            &.ng-enter-active {
+                opacity: 1;
+                margin-left: 0px;
+            }
+        }
+    }
+
+    &.right-aligned {
+        &.ng-enter {
+            margin-right: -212px;
+            opacity: 0;
+
+            &.ng-enter-active {
+                opacity: 1;
+                margin-right: 12px;
+            }
+        }
+    }
 }
 
 .chat-message {
@@ -23,6 +51,7 @@
 
             div {
                 border-bottom-right-radius: 6px;
+                float: right;
             }
         }
 
@@ -31,12 +60,12 @@
 
             div {
                 border-bottom-left-radius: 6px;
+                float: left;
             }
         }
 
         div {
             color: white;
-            float: inherit;
             height: 100%;
             padding: 10px;
             padding-top: 8px;

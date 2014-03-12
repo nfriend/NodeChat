@@ -8868,6 +8868,31 @@ button.close {
   margin-right: 12px;
 }
 
+.chat-message-container.ng-enter {
+  -webkit-transition: all 200ms cubic-bezier(0.335, 0.095, 0.07, 1.4), opacity 200ms linear;
+  transition: all 200ms cubic-bezier(0.335, 0.095, 0.07, 1.4), opacity 200ms linear;
+}
+
+.chat-message-container.left-aligned.ng-enter {
+  margin-left: -200px;
+  opacity: 0;
+}
+
+.chat-message-container.left-aligned.ng-enter.ng-enter-active {
+  opacity: 1;
+  margin-left: 0px;
+}
+
+.chat-message-container.right-aligned.ng-enter {
+  margin-right: -212px;
+  opacity: 0;
+}
+
+.chat-message-container.right-aligned.ng-enter.ng-enter-active {
+  opacity: 1;
+  margin-right: 12px;
+}
+
 .chat-message {
   position: relative;
   width: 100%;
@@ -8892,6 +8917,7 @@ button.close {
 
 .chat-message .name-container.pull-right div {
   border-bottom-right-radius: 6px;
+  float: right;
 }
 
 .chat-message .name-container.pull-left {
@@ -8900,11 +8926,11 @@ button.close {
 
 .chat-message .name-container.pull-left div {
   border-bottom-left-radius: 6px;
+  float: left;
 }
 
 .chat-message .name-container div {
   color: white;
-  float: inherit;
   height: 100%;
   padding: 10px;
   padding-top: 8px;
@@ -9021,12 +9047,12 @@ button.close {
 
 .resize {
   overflow: auto;
+  overflow-x: hidden;
 }
 
 /* Space out content a bit */
 
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
   font-family: "Open Sans", sans-serif;
 }
@@ -9049,10 +9075,10 @@ hr {
 .header {
   position: relative;
   z-index: 10;
-  background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 50%, #ffffff 100%);
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 50%, #ffffff 100%);
+  background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 100%);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0), #ffffff 100%);
   margin-right: 25px;
-  padding-bottom: 41px;
+  height: 80px;
   /* Make the masthead heading the same height as the navigation */
 }
 

@@ -9,7 +9,7 @@ angular.module('nodeChat.controllers').
 
         var colors = ['blue', 'green', 'red', 'light-blue', 'orange', 'gray'];
 
-        for (var i = 0; i < 50; i++) {
+        for (var i = 0; i < 5; i++) {
             $scope.messages.push({
                 'name': 'Nathan ' + i,
                 'message': 'hello ' + i,
