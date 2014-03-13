@@ -1,34 +1,53 @@
 'use strict';
 
 angular.module('nodeChat.controllers').
-    controller('mainController', ['$scope', function ($scope) {
-        var isMyMessage = true;
-
+    controller('mainController', ['$scope', 'websocketConnection', function ($scope, websocketConnection) {
+        var colors = ['blue', 'green', 'red', 'light-blue', 'orange', 'gray'];
+        var whoosh = new Audio('audio/whoosh-mid.mp3');
         $scope.messages = [];
         $scope.chatInput = '';
+        
+        websocketConnection.on('connect', function () {
+            console.log("connected!!");
+        });
 
-        var colors = ['blue', 'green', 'red', 'light-blue', 'orange', 'gray'];
+        websocketConnection.on('error', function () {
+            console.log("uh oh. error'd.");
+        });
+
+        websocketConnection.on('recieve', function (data) {
+            data.isMyMessage = false;
+            data.color = colors[1];
+            $scope.messages.push(data);
+            whoosh.play();
+            $scope.scrollToBottom();
+        });
+
+        websocketConnection.on('disconnect', function () {
+            console.log("disconnected!!");
+        });
+
+        websocketConnection.connect();
 
         for (var i = 0; i < 5; i++) {
             $scope.messages.push({
                 'name': 'Nathan ' + i,
                 'message': 'hello ' + i,
-                'isMyMessage': isMyMessage,
+                'isMyMessage': i % 3 === 0,
                 'color': colors[i % 6]
             });
-
-            isMyMessage = i % 3 === 0;
         }
 
         $scope.send = function () {
-            $scope.messages.push({
-                'name': 'Nathan',
+            var newMessage = {
+                'name': 'Me',
                 'message': $scope.chatInput,
-                'isMyMessage': isMyMessage,
-                'color': colors[2]
-            });
+                'isMyMessage': true,
+                'color': 'gray'
+            }
 
-            isMyMessage = !isMyMessage;
+            $scope.messages.push(newMessage);
+            websocketConnection.send(newMessage);
 
             $scope.chatInput = '';
             $scope.scrollToBottom();

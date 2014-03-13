@@ -48,7 +48,7 @@ module.exports = function (grunt) {
             },
             devbuild: {
                 cwd: 'app',
-                src: ['<%= dom_munger.data.jsRefsWithoutPath %>', '<%= dom_munger.data.cssRefsWithoutPath %>', 'fonts/**', 'images/**', 'views/**'],
+                src: ['<%= dom_munger.data.jsRefsWithoutPath %>', '<%= dom_munger.data.cssRefsWithoutPath %>', 'fonts/**', 'images/**', 'views/**', 'audio/**', 'favicon.ico'],
                 dest: 'devbuild',
                 expand: true
             },
