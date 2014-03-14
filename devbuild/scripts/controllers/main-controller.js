@@ -8,11 +8,11 @@ angular.module('nodeChat.controllers').
         $scope.chatInput = '';
         
         websocketConnection.on('connect', function () {
-            console.log("connected!!");
+            console.log('connected!!');
         });
 
         websocketConnection.on('error', function () {
-            console.log("uh oh. error'd.");
+            console.log('uh oh. error\'d.');
         });
 
         websocketConnection.on('recieve', function (data) {
@@ -24,7 +24,7 @@ angular.module('nodeChat.controllers').
         });
 
         websocketConnection.on('disconnect', function () {
-            console.log("disconnected!!");
+            console.log('disconnected!!');
         });
 
         websocketConnection.connect();
@@ -44,7 +44,7 @@ angular.module('nodeChat.controllers').
                 'message': $scope.chatInput,
                 'isMyMessage': true,
                 'color': 'gray'
-            }
+            };
 
             $scope.messages.push(newMessage);
             websocketConnection.send(newMessage);

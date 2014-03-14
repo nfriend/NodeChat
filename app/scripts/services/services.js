@@ -9,7 +9,12 @@ angular.module('nodeChat.services')
         var _recieveHandlers = [], _errorHandlers = [], _connectHandlers = [], _disconnectHandlers = [];
 
         websocketConnectionInstance.connect = function () {
-            connection = new WebSocket('ws://127.0.0.1:8080', 'nodechat-protocol');
+            if (document.location.hostname === 'nathanfriend.com') {
+                connection = new WebSocket('ws://nathanfriend.com:8080', 'nodechat-protocol');
+            } else {
+                connection = new WebSocket('ws://127.0.0.1:8080', 'nodechat-protocol');
+            }
+
             connection.onopen = function () {
                 $rootScope.$apply(function () {
                     _connectHandlers.forEach(function (element, index, array) { element(); });
@@ -19,27 +24,25 @@ angular.module('nodeChat.services')
                 $rootScope.$apply(function () {
                     _disconnectHandlers.forEach(function (element, index, array) { element(); });
                 });
-            }
+            };
             connection.onerror = function () {
                 $rootScope.$apply(function () {
                     _errorHandlers.forEach(function (element, index, array) { element(); });
                 });
             };
             connection.onmessage = function (message) {
-                setTimeout(function () {
-                    $rootScope.$apply(function () {
-                        try {
-                            var data = JSON.parse(message.data);
-                        } catch (e) {
-                            console.log("NodeChat: websocketConnection service: failed to JSON.parse data: " + data);
-                            _errorHandlers.forEach(function (element, index, array) { element(data); });
-                        }
+                $rootScope.$apply(function () {
+                    try {
+                        var data = JSON.parse(message.data);
+                    } catch (e) {
+                        console.log('NodeChat: websocketConnection service: failed to JSON.parse data: ' + data);
+                        _errorHandlers.forEach(function (element, index, array) { element(data); });
+                    }
 
-                        _recieveHandlers.forEach(function (element, index, array) { element(data); });
-                    });
-                }, 250);
+                    _recieveHandlers.forEach(function (element, index, array) { element(data); });
+                });
             };
-        }
+        };
 
         websocketConnectionInstance.send = function (data) {
             if (connection) {
@@ -61,35 +64,31 @@ angular.module('nodeChat.services')
 
         websocketConnectionInstance.off = function (eventType, handler) {
             if (eventType === 'recieve') {
-                var index = _recieveHandlers.indexOf(handler);
-                if (index === -1) {
+                if (_recieveHandlers.indexOf(handler) === -1) {
                     return false;
                 } else {
-                    _recieveHandlers.splice(index, 1);
+                    _recieveHandlers.splice(_recieveHandlers.indexOf(handler), 1);
                     return true;
                 }
             } else if (eventType === 'error') {
-                var index = _errorHandlers.indexOf(handler);
-                if (index === -1) {
+                if (_errorHandlers.indexOf(handler) === -1) {
                     return false;
                 } else {
-                    _errorHandlers.splice(index, 1);
+                    _errorHandlers.splice(_errorHandlers.indexOf(handler), 1);
                     return true;
                 }
             } else if (eventType === 'connect') {
-                var index = _connectHandlers.indexOf(handler);
-                if (index === -1) {
+                if (_connectHandlers.indexOf(handler) === -1) {
                     return false;
                 } else {
-                    _connectHandlers.splice(index, 1);
+                    _connectHandlers.splice(_connectHandlers.indexOf(handler), 1);
                     return true;
                 }
             } else if (eventType === 'disconnect') {
-                var index = _disconnectHandlers.indexOf(handler);
-                if (index === -1) {
+                if (_disconnectHandlers.indexOf(handler) === -1) {
                     return false;
                 } else {
-                    _disconnectHandlers.splice(index, 1);
+                    _disconnectHandlers.splice(_disconnectHandlers.indexOf(handler), 1);
                     return true;
                 }
             }
