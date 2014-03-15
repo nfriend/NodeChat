@@ -7153,8 +7153,8 @@ button.close {
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../fonts/fontawesome-webfont.eot?v=4.0.3');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  src: url('fonts/fontawesome-webfont.eot?v=4.0.3');
+  src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -9048,6 +9048,109 @@ button.close {
 .resize {
   overflow: auto;
   overflow-x: hidden;
+}
+
+.user-information-modal .modal-header h3 {
+  margin: 0;
+}
+
+.user-information-modal .color-container {
+  margin-right: -5px;
+}
+
+.user-information-modal .color-container .color-choice {
+  height: 68px;
+  outline: 0;
+}
+
+.user-information-modal .color-container .color-choice:active,
+.user-information-modal .color-container .color-choice:focus {
+  outline: 0;
+}
+
+.user-information-modal .color-container .color-choice.blue {
+  background: #428bca;
+}
+
+.user-information-modal .color-container .color-choice.blue:hover {
+  background: #6aa3d5;
+}
+
+.user-information-modal .color-container .color-choice.green {
+  background: #5cb85c;
+}
+
+.user-information-modal .color-container .color-choice.green:hover {
+  background: #80c780;
+}
+
+.user-information-modal .color-container .color-choice.green:active {
+  background: #449d44;
+}
+
+.user-information-modal .color-container .color-choice.red {
+  background: #d9534f;
+}
+
+.user-information-modal .color-container .color-choice.red:hover {
+  background: #e27c79;
+}
+
+.user-information-modal .color-container .color-choice.red:active {
+  background: #c9302c;
+}
+
+.user-information-modal .color-container .color-choice.light-blue {
+  background: #5bc0de;
+}
+
+.user-information-modal .color-container .color-choice.light-blue:hover {
+  background: #85d0e7;
+}
+
+.user-information-modal .color-container .color-choice.light-blue:active {
+  background: #31b0d5;
+}
+
+.user-information-modal .color-container .color-choice.orange {
+  background: #f0ad4e;
+}
+
+.user-information-modal .color-container .color-choice.orange:hover {
+  background: #f4c37d;
+}
+
+.user-information-modal .color-container .color-choice.orange:active {
+  background: #ec971f;
+}
+
+.user-information-modal .color-container .color-choice.gray {
+  background: #999999;
+}
+
+.user-information-modal .color-container .color-choice.gray:hover {
+  background: #b3b3b3;
+}
+
+.user-information-modal .color-container .color-choice.gray:active {
+  background: #808080;
+}
+
+.user-information-modal .color-container .color-choice i {
+  color: transparent;
+  font-size: 50px;
+}
+
+.user-information-modal .color-container .color-choice i.selected {
+  color: white;
+}
+
+.user-information-modal .modal-footer {
+  padding: 15px 20px;
+}
+
+.user-information-modal .modal-footer .btn {
+  width: 100px;
 }
 
 /* Space out content a bit */

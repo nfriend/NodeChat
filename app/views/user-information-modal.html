@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h3 class="text-muted">Welcome to NodeChat</h3>
+</div>
+
+<div class="modal-body">
+    <form role="form">
+        <div class="form-group">
+            <label>What's your name?</label>
+            <input class="form-control" ng-model="userInformation.name" maxlength="10" />
+        </div>
+        <div class="form-group">
+            <label>Pick your color:</label>
+            <div class="row color-container">                   
+                <div class="col-sm-2" ng-repeat="color in colors">
+                    <button class="btn color-choice" ng-class="color" ng-click="selectColor(color)">
+                        <i class="fa fa-check" ng-class="{'selected': userInformation.color === color}"  ></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button id="user-information-modal-ok-button" class="btn btn-success btn-lg" ng-click="ok()">OK</button>
+</div>

@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('nodeChat.controllers').
-    controller('mainController', ['$scope', 'websocketConnection', function ($scope, websocketConnection) {
-        var colors = ['blue', 'green', 'red', 'light-blue', 'orange', 'gray'];
+    controller('mainController', ['$scope', '$modal', 'websocketConnection', 'colors', 'userInformation', function ($scope, $modal, websocketConnection, colors, userInformation) {
         var whoosh = new Audio('audio/whoosh-mid.mp3');
         $scope.messages = [];
         $scope.chatInput = '';
-        
+
         websocketConnection.on('connect', function () {
             console.log('connected!!');
         });
@@ -16,10 +15,18 @@ angular.module('nodeChat.controllers').
         });
 
         websocketConnection.on('recieve', function (data) {
-            data.isMyMessage = false;
-            data.color = colors[1];
-            $scope.messages.push(data);
-            whoosh.play();
+            if (data.type === 'new') {
+                data.isMyMessage = false;
+                $scope.messages.push(data);
+                whoosh.play();
+            } else if (data.type === 'history') {
+                data.messages.forEach(function (element, index, array) {
+                    var message = JSON.parse(element);
+                    message.isMyMessage = false;
+                    $scope.messages.push(message);
+                });
+            }
+
             $scope.scrollToBottom();
         });
 
@@ -29,22 +36,16 @@ angular.module('nodeChat.controllers').
 
         websocketConnection.connect();
 
-        for (var i = 0; i < 5; i++) {
-            $scope.messages.push({
-                'name': 'Nathan ' + i,
-                'message': 'hello ' + i,
-                'isMyMessage': i % 3 === 0,
-                'color': colors[i % 6]
-            });
-        }
-
         $scope.send = function () {
             var newMessage = {
-                'name': 'Me',
+                'type': 'new',
+                'name': userInformation.name,
                 'message': $scope.chatInput,
                 'isMyMessage': true,
-                'color': 'gray'
+                'color': userInformation.color
             };
+
+            console.log($scope.chatInput);
 
             $scope.messages.push(newMessage);
             websocketConnection.send(newMessage);
@@ -54,11 +55,18 @@ angular.module('nodeChat.controllers').
         };
 
         $scope.chatInputKeyDown = function (event) {
-            // if shift + enter is pressed
-            if (event.shiftKey && event.which === 13) {
-                $scope.send();
-                event.stopPropagation();
-                event.preventDefault();
+            if (event.which === 13) {
+                if (! event.shiftKey) {
+                    $scope.send();
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
             }
         };
+
+        var modalInstance = $modal.open({
+            templateUrl: 'views/user-information-modal.html',
+            controller: 'userInformationController',
+            windowClass: 'user-information-modal'
+        });
     }]);

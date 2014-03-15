@@ -1,0 +1,108 @@
+.user-information-modal {
+    .modal-header {
+        h3 {
+            margin: 0;
+        }
+    }
+
+    .color-container {
+        margin-right: -5px;
+
+        .color-choice {
+            height: 68px;
+            outline: 0;
+
+            &:active, &:focus {
+                outline: 0;
+            }
+
+            &.blue {
+                background: @brand-primary;
+
+                &:hover {
+                    background: lighten(@brand-primary, 10%);
+                }
+                /*&:active {
+                background: darken(@brand-primary, 10%);
+            }*/
+            }
+
+            &.green {
+                background: @brand-success;
+
+                &:hover {
+                    background: lighten(@brand-success, 10%);
+                }
+
+                &:active {
+                    background: darken(@brand-success, 10%);
+                }
+            }
+
+            &.red {
+                background: @brand-danger;
+
+                &:hover {
+                    background: lighten(@brand-danger, 10%);
+                }
+
+                &:active {
+                    background: darken(@brand-danger, 10%);
+                }
+            }
+
+            &.light-blue {
+                background: @brand-info;
+
+                &:hover {
+                    background: lighten(@brand-info, 10%);
+                }
+
+                &:active {
+                    background: darken(@brand-info, 10%);
+                }
+            }
+
+            &.orange {
+                background: @brand-warning;
+
+                &:hover {
+                    background: lighten(@brand-warning, 10%);
+                }
+
+                &:active {
+                    background: darken(@brand-warning, 10%);
+                }
+            }
+
+            &.gray {
+                background: @brand-neutral;
+
+                &:hover {
+                    background: lighten(@brand-neutral, 10%);
+                }
+
+                &:active {
+                    background: darken(@brand-neutral, 10%);
+                }
+            }
+
+            i {
+                color: transparent;
+                font-size: 50px;
+
+                &.selected {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .modal-footer {
+        padding: 15px 20px;
+
+        .btn {
+            width: 100px;
+        }
+    }
+}

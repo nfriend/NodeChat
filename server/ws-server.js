@@ -3,7 +3,7 @@
 var WebSocketServer = require('websocket').server;
 var http = require('http');
 var clients = [];
-var messagemManager = new MessageManager(50);
+var messageManager = new MessageManager(50);
 var allowedOrigins = [/^http:\/\/localhost/, /^http:\/\/127.0.0.1/, /^http:\/\/nathanfriend.com/, /^http:\/\/www.nathanfriend.com/];
 
 var server = http.createServer(function (request, response) {
@@ -32,10 +32,16 @@ wsServer.on('request', function (request) {
     clients.push(connection);
     console.log((new Date()) + ' Connection accepted.');
 
+    //send history of chat to client
+    connection.sendUTF(JSON.stringify({
+        type: 'history',
+        messages: messageManager.getMessages()
+    }));
+
     connection.on('message', function (message) {
         if (message.type === 'utf8') {
             console.log('Received Message: ' + message.utf8Data);
-            messagemManager.addMessage(message.utf8Data);
+            messageManager.addMessage(message.utf8Data);
 
             clients.forEach(function (element, index, array) {
                 if (element !== connection) {

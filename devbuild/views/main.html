@@ -11,7 +11,7 @@
         <div class="chat-top-spacer">
             <h1 class="text-muted">NodeChat</h1>
         </div>
-        <div class="chat-message-container" ng-repeat="message in messages" ng-class="{'left-aligned': !message.isMyMessage, 'right-aligned': message.isMyMessage}" >
+        <div class="chat-message-container" ng-repeat="message in messages track by $index" ng-class="{'left-aligned': !message.isMyMessage, 'right-aligned': message.isMyMessage}" >
             <div class="chat-message" ng-class="message.color" chat-message name="message.name" message="message.message" is-my-message="message.isMyMessage" />
         </div>
     </div>
@@ -22,7 +22,7 @@
 <div class="row chat-input-container">
     <div class="col-sm-10 col-xs-12">
         <textarea class="chat-input form-control" ng-model="chatInput" ng-keydown="chatInputKeyDown($event)"
-                  rows="2" placeholder="Press Shift+Enter to send" autofocus="autofocus" />
+                  rows="2" placeholder="Press Shift+Enter to send" autofocus="autofocus"/>
     </div>
     <div class="col-sm-2 col-xs-12">
         <button class="btn btn-success btn-lg send-button" ng-click="send()"><span>Send</span></button>
