@@ -43,11 +43,11 @@
     }
 
     .name-container {
-        position: absolute;
-        width: 20%;
+        width: 100px;
 
         &.pull-right {
             right: 0;
+            margin-left: 10px;
 
             div {
                 border-bottom-right-radius: 6px;
@@ -57,6 +57,7 @@
 
         &.pull-left {
             left: 0;
+            margin-right: 10px;
 
             div {
                 border-bottom-left-radius: 6px;
@@ -69,6 +70,8 @@
             height: 100%;
             padding: 10px;
             padding-top: 8px;
+            max-width: 100%;
+            text-align: center;
         }
     }
 
@@ -182,26 +185,24 @@
 
     .message-container {
         position: relative;
-        width: 80%;
         margin-top: 8px;
-        padding-bottom: 25px;
 
-        &.pull-left {
-            padding-left: 135px;
+        &.text-left {
+            margin-left: 110px;
         }
 
-        &.pull-right {
-            padding-right: 135px;
+        &.text-right {
+            margin-right: 110px;
         }
     }
 
     .text-left {
         text-align: left;
-        float: left;
+        /*float: left;*/
     }
 
     .text-right {
         text-align: right;
-        float: right;
+        /*float: right;*/
     }
 }

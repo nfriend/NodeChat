@@ -8907,12 +8907,12 @@ button.close {
 }
 
 .chat-message .name-container {
-  position: absolute;
-  width: 20%;
+  width: 100px;
 }
 
 .chat-message .name-container.pull-right {
   right: 0;
+  margin-left: 10px;
 }
 
 .chat-message .name-container.pull-right div {
@@ -8922,6 +8922,7 @@ button.close {
 
 .chat-message .name-container.pull-left {
   left: 0;
+  margin-right: 10px;
 }
 
 .chat-message .name-container.pull-left div {
@@ -8934,6 +8935,8 @@ button.close {
   height: 100%;
   padding: 10px;
   padding-top: 8px;
+  max-width: 100%;
+  text-align: center;
 }
 
 .chat-message.blue .name-container div {
@@ -9022,27 +9025,25 @@ button.close {
 
 .chat-message .message-container {
   position: relative;
-  width: 80%;
   margin-top: 8px;
-  padding-bottom: 25px;
 }
 
-.chat-message .message-container.pull-left {
-  padding-left: 135px;
+.chat-message .message-container.text-left {
+  margin-left: 110px;
 }
 
-.chat-message .message-container.pull-right {
-  padding-right: 135px;
+.chat-message .message-container.text-right {
+  margin-right: 110px;
 }
 
 .chat-message .text-left {
   text-align: left;
-  float: left;
+  /*float: left;*/
 }
 
 .chat-message .text-right {
   text-align: right;
-  float: right;
+  /*float: right;*/
 }
 
 .resize {
@@ -9052,10 +9053,6 @@ button.close {
 
 .user-information-modal .modal-header h3 {
   margin: 0;
-}
-
-.user-information-modal .color-container {
-  margin-right: -5px;
 }
 
 .user-information-modal .color-container .color-choice {
@@ -9138,7 +9135,6 @@ button.close {
 
 .user-information-modal .color-container .color-choice i {
   color: transparent;
-  font-size: 50px;
 }
 
 .user-information-modal .color-container .color-choice i.selected {
@@ -9149,8 +9145,49 @@ button.close {
   padding: 15px 20px;
 }
 
-.user-information-modal .modal-footer .btn {
-  width: 100px;
+@media screen and (min-width: 768px) {
+  .user-information-modal .color-container {
+    margin-right: -5px;
+  }
+
+  .user-information-modal .color-container .color-choice i {
+    font-size: 50px;
+  }
+
+  .user-information-modal .modal-footer .btn {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .user-information-modal .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .user-information-modal .color-container {
+    margin-bottom: -30px;
+  }
+
+  .user-information-modal .color-container > div {
+    text-align: center;
+    padding: 0;
+  }
+
+  .user-information-modal .color-container > div .color-choice {
+    width: 100%;
+    max-width: 72px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .user-information-modal .color-container > div .color-choice i {
+    font-size: 40px;
+  }
+
+  .user-information-modal .modal-footer .btn {
+    width: 100%;
+  }
 }
 
 /* Space out content a bit */
@@ -9218,6 +9255,11 @@ textarea.form-control.chat-input {
 
 .chat-top-spacer {
   margin-top: 60px;
+}
+
+.cleared {
+  float: none;
+  clear: both;
 }
 
 /* Responsive: Portrait tablets and up */

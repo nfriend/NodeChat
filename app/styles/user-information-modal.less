@@ -6,8 +6,6 @@
     }
 
     .color-container {
-        margin-right: -5px;
-
         .color-choice {
             height: 68px;
             outline: 0;
@@ -89,7 +87,6 @@
 
             i {
                 color: transparent;
-                font-size: 50px;
 
                 &.selected {
                     color: white;
@@ -100,9 +97,62 @@
 
     .modal-footer {
         padding: 15px 20px;
+    }
+}
 
-        .btn {
-            width: 100px;
+@media screen and (min-width: @screen-sm-min) {
+    .user-information-modal {
+
+        .color-container {
+            margin-right: -5px;
+
+            .color-choice {
+                i {
+                    font-size: 50px;
+                }
+            }
+        }
+
+        .modal-footer {
+            .btn {
+                width: 100px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: @screen-xs-max) {
+    .user-information-modal {
+
+        .row {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .color-container {
+            margin-bottom: -30px;
+
+            > div {
+                text-align: center;
+                padding: 0;
+
+                .color-choice {
+                    width: 100%;
+                    max-width: 72px;
+                    margin-top: 10px;
+                    margin-bottom: 15px;
+
+                    i {
+                        font-size: 40px;
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            .btn {
+                width: 100%;
+            }
         }
     }
 }
