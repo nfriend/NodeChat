@@ -9190,6 +9190,48 @@ button.close {
   }
 }
 
+.disconnected-modal .modal-header h3 {
+  margin: 0;
+}
+
+.disconnected-modal .modal-footer {
+  padding: 15px 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .disconnected-modal .modal-footer .btn {
+    width: 100%;
+  }
+}
+
+.could-not-connect-modal .modal-header h3 {
+  margin: 0;
+}
+
+.could-not-connect-modal .modal-footer {
+  padding: 15px 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .could-not-connect-modal .modal-footer .btn {
+    width: 100%;
+  }
+}
+
+.outdated-browser-modal .modal-header h3 {
+  margin: 0;
+}
+
+.outdated-browser-modal .modal-footer {
+  padding: 15px 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .outdated-browser-modal .modal-footer .btn {
+    width: 100%;
+  }
+}
+
 /* Space out content a bit */
 
 body {

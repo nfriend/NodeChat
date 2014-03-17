@@ -2,16 +2,33 @@
 
 angular.module('nodeChat.controllers').
     controller('mainController', ['$scope', '$modal', 'websocketConnection', 'colors', 'userInformation', function ($scope, $modal, websocketConnection, colors, userInformation) {
+
+        if (! ("WebSocket" in window)) {
+            $modal.open({
+                templateUrl: 'views/outdated-browser-modal.html',
+                windowClass: 'outdated-browser-modal',
+                backdrop: 'static',
+                keybaord: false
+            });
+
+            return;
+        }
+
         var whoosh = new Audio('audio/whoosh-mid.mp3');
+        var userInformationModalInstance;
         $scope.messages = [];
         $scope.chatInput = '';
 
-        websocketConnection.on('connect', function () {
-            console.log('connected!!');
-        });
-
         websocketConnection.on('error', function () {
-            console.log('uh oh. error\'d.');
+            userInformationModalInstance.close();
+
+            $modal.open({
+                templateUrl: 'views/could-not-connect-modal.html',
+                controller: 'couldNotConnectController',
+                windowClass: 'could-not-connect-modal',
+                backdrop: 'static',
+                keyboard: false
+            });
         });
 
         websocketConnection.on('recieve', function (data) {
@@ -31,7 +48,13 @@ angular.module('nodeChat.controllers').
         });
 
         websocketConnection.on('disconnect', function () {
-            console.log('disconnected!!');
+            $modal.open({
+                templateUrl: 'views/disconnected-modal.html',
+                controller: 'disconnectedController',
+                windowClass: 'disconnected-modal',
+                backdrop: 'static',
+                keyboard: false
+            });
         });
 
         websocketConnection.connect();
@@ -44,8 +67,6 @@ angular.module('nodeChat.controllers').
                 'isMyMessage': true,
                 'color': userInformation.color
             };
-
-            console.log($scope.chatInput);
 
             $scope.messages.push(newMessage);
             websocketConnection.send(newMessage);
@@ -64,9 +85,11 @@ angular.module('nodeChat.controllers').
             }
         };
 
-        var modalInstance = $modal.open({
+        userInformationModalInstance = $modal.open({
             templateUrl: 'views/user-information-modal.html',
             controller: 'userInformationController',
-            windowClass: 'user-information-modal'
+            windowClass: 'user-information-modal',
+            backdrop: 'static',
+            keybaord: false
         });
     }]);

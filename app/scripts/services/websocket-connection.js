@@ -8,6 +8,9 @@ angular.module('nodeChat.services')
         var connection;
         var _recieveHandlers = [], _errorHandlers = [], _connectHandlers = [], _disconnectHandlers = [];
 
+        // used to differentiate between a disconnect and a failure to connect initially
+        var connectionWasOpen = false;
+
         websocketConnectionInstance.connect = function () {
             if (document.location.hostname === 'nathanfriend.com') {
                 connection = new WebSocket('ws://nathanfriend.com:8080', 'nodechat-protocol');
@@ -17,18 +20,23 @@ angular.module('nodeChat.services')
 
             connection.onopen = function () {
                 $rootScope.$apply(function () {
+                    connectionWasOpen = true;
                     _connectHandlers.forEach(function (element, index, array) { element(); });
                 });
             };
             connection.onclose = function () {
-                $rootScope.$apply(function () {
-                    _disconnectHandlers.forEach(function (element, index, array) { element(); });
-                });
+                if (connectionWasOpen) {
+                    $rootScope.$apply(function () {
+                        _disconnectHandlers.forEach(function (element, index, array) { element(); });
+                    });
+                }
             };
             connection.onerror = function () {
-                $rootScope.$apply(function () {
-                    _errorHandlers.forEach(function (element, index, array) { element(); });
-                });
+                if (!connectionWasOpen) {
+                    $rootScope.$apply(function () {
+                        _errorHandlers.forEach(function (element, index, array) { element(); });
+                    });
+                }
             };
             connection.onmessage = function (message) {
                 $rootScope.$apply(function () {
