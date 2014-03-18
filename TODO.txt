@@ -1,0 +1,6 @@
+TODO
+----
+
+- add profanity filter to player name
+- prevent empty submit
+- prevent empty player name
