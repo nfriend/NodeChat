@@ -1,6 +1,12 @@
 TODO
 ----
 
+- test in IE 10-
+- iPad resize issue
+
+DONE
+----
+
 - add profanity filter to player name
 - prevent empty submit
 - prevent empty player name

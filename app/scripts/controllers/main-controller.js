@@ -3,7 +3,7 @@
 angular.module('nodeChat.controllers').
     controller('mainController', ['$scope', '$modal', 'websocketConnection', 'colors', 'userInformation', function ($scope, $modal, websocketConnection, colors, userInformation) {
 
-        if (! ('WebSocket' in window)) {
+        if (!('WebSocket' in window)) {
             $modal.open({
                 templateUrl: 'views/outdated-browser-modal.html',
                 windowClass: 'outdated-browser-modal',
@@ -36,6 +36,11 @@ angular.module('nodeChat.controllers').
                 data.isMyMessage = false;
                 $scope.messages.push(data);
                 whoosh.play();
+
+                if ($scope.messages.length > 250) {
+                    $scope.messages.splice(0, 1);
+                }
+
             } else if (data.type === 'history') {
                 data.messages.forEach(function (element, index, array) {
                     var message = JSON.parse(element);
@@ -60,6 +65,12 @@ angular.module('nodeChat.controllers').
         websocketConnection.connect();
 
         $scope.send = function () {
+
+            // don't send if the message is empty
+            if (! /\S/.test($scope.chatInput)) {
+                return;
+            }
+
             var newMessage = {
                 'type': 'new',
                 'name': userInformation.name,
@@ -70,6 +81,10 @@ angular.module('nodeChat.controllers').
 
             $scope.messages.push(newMessage);
             websocketConnection.send(newMessage);
+
+            if ($scope.messages.length > 250) {
+                $scope.messages.splice(0, 1);
+            }
 
             $scope.chatInput = '';
             $scope.scrollToBottom();
@@ -90,6 +105,6 @@ angular.module('nodeChat.controllers').
             controller: 'userInformationController',
             windowClass: 'user-information-modal',
             backdrop: 'static',
-            keybaord: false
+            keyboard: false
         });
     }]);

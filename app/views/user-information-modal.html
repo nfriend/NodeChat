@@ -6,11 +6,11 @@
     <form role="form">
         <div class="form-group">
             <label>What's your name?</label>
-            <input class="form-control" ng-model="userInformation.name" />
+            <input id="name-field" class="form-control" ng-model="userInformation.name" ng-keydown="nameFieldKeyDown($event)"/>
         </div>
         <div class="form-group">
             <label>Pick your color:</label>
-            <div class="row color-container">                   
+            <div class="row color-container">
                 <div class="col-sm-2 col-xs-4" ng-repeat="color in colors">
                     <button class="btn color-choice" ng-class="color" ng-click="selectColor(color)">
                         <i class="fa fa-check" ng-class="{'selected': userInformation.color === color}"  ></i>
@@ -22,5 +22,5 @@
 </div>
 
 <div class="modal-footer">
-    <button id="user-information-modal-ok-button" class="btn btn-success btn-lg" ng-click="ok()">OK</button>
+    <button id="user-information-modal-ok-button" class="btn btn-success btn-lg" ng-click="ok()" ng-disabled="isNameEmptyOrWhitespace()">OK</button>
 </div>

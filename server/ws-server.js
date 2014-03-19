@@ -3,7 +3,7 @@
 var WebSocketServer = require('websocket').server;
 var http = require('http');
 var clients = [];
-var messageManager = new MessageManager(50);
+var messageManager = new MessageManager(250);
 var allowedOrigins = [/^http:\/\/localhost/, /^http:\/\/127.0.0.1/, /^http:\/\/nathanfriend.com/, /^http:\/\/www.nathanfriend.com/];
 
 var server = http.createServer(function (request, response) {
