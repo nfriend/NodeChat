@@ -12,7 +12,7 @@ angular.module('nodeChat.services')
             ['fucking', 'pancaking', false],
             ['fucker', 'pancake flipper', false],
             ['fuck', 'pancake', false],
-            ['shit', 'sheer beauty', false],
+            ['shit', 'sheer beauty', true],
             ['asshole', 'elbow joint', false],
             ['asses', 'elbows', false],
             ['ass', 'elbow', true],

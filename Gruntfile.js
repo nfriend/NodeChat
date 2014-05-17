@@ -173,12 +173,33 @@ module.exports = function (grunt) {
                 }
             }
         },
+
+        karma: {
+            unit: {
+                options: {
+                    files: [
+                        'app/bower_components/angular/angular.js',
+                        'app/bower_components/angular-route/angular-route.js',
+                        'app/bower_components/angular-mocks/angular-mocks.js',
+                        'app/scripts/modules.js',
+                        'app/scripts/**/*.js',
+                        'test/**/*.js',
+                    ],
+                    frameworks: ['jasmine'],
+                    reporters: ['progress'],
+                    color: true,
+                    browsers: ['PhantomJS']
+                }
+            }
+        }
     });
+
+    grunt.registerTask('test', 'Runs all the unit tests for this project', ['karma']);
 
     grunt.registerTask(
         'dist',
         'Compiles all of the assets and copies the files to the dist directory',
-        ['clean:dist', 'dom_munger:dist', 'copy:dist', 'less:dist', 'autoprefixer:dist', 'cssmin', 'jshint', 'uglify', 'clean:diststylesheets', 'clean:distscripts']
+        ['clean:dist', 'dom_munger:dist', 'copy:dist', 'less:dist', 'autoprefixer:dist', 'cssmin', 'jshint', 'test', 'uglify', 'clean:diststylesheets', 'clean:distscripts']
     );
 
     grunt.registerTask(
@@ -216,4 +237,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-dom-munger');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-karma');
 };

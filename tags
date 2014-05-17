@@ -1,0 +1,3 @@
+send	app/scripts/controllers/main-controller.js	68
+chatInputKeyDown	app/scripts/controllers/main-controller.js	94
+exports	Gruntfile.js	3
