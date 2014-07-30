@@ -14,7 +14,7 @@
 	"nonew": true,
 	"quotmark": "single",
 	"undef": true,
-	"unused": true,
+	"unused": "vars",
 	"strict": true,
 	"trailing": true,
   	

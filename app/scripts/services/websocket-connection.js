@@ -12,8 +12,8 @@ angular.module('nodeChat.services')
         var connectionWasOpen = false;
 
         websocketConnectionInstance.connect = function () {
-            if (document.location.hostname === 'nathanfriend.com') {
-                connection = new WebSocket('ws://nathanfriend.com:8080', 'nodechat-protocol');
+            if (document.location.hostname === 'nathanfriend.com' || document.location.hostname === 'nathanfriend.cloudapp.net') {
+                connection = new WebSocket('ws://nf-backend.cloudapp.net:8080', 'nodechat-protocol');
             } else {
                 connection = new WebSocket('ws://127.0.0.1:8080', 'nodechat-protocol');
             }
