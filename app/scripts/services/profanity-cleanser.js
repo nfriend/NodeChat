@@ -1,3 +1,4 @@
+rot13
 'use strict';
 
 angular.module('nodeChat.services')
@@ -13,6 +14,10 @@ angular.module('nodeChat.services')
             ['shpxre', 'pancake flipper', false],
             ['shpx', 'pancake', false],
             ['fuvg', 'sheer beauty', true],
+            ['fuvgcnapnxr', 'deliciousness', false],
+            ['fuvgnff', ':)', false],
+            ['fuvgsnpr', 'big meanie', false],
+            ['nffjvcr', 'bottom tissue', false],
             ['nffubyr', 'elbow joint', false],
             ['nffrf', 'elbows', false],
             ['nff', 'elbow', true],
