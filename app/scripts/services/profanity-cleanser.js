@@ -49,7 +49,9 @@ angular.module('nodeChat.services')
             ['obbof', 'tax returns', false],
             ['gjrex', 'square dance', false],
             ['phz', 'throw a frisbee', true],
-            ['phzzvat', 'throwing a frisbee', true]
+            ['phzzvat', 'throwing a frisbee', true],
+            ['shqtrcnpxre', 'candy salesman', false],
+            ['shqtr cnpxre', 'candy salesman', false]
         ];
 
         // make it a little more difficult to use these words
