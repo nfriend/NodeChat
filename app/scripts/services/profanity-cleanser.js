@@ -1,4 +1,3 @@
-rot13
 'use strict';
 
 angular.module('nodeChat.services')
