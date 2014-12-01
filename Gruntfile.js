@@ -42,7 +42,7 @@ module.exports = function (grunt) {
         copy: {
             dist: {
                 cwd: 'app',
-                src: ['fonts/**', 'images/**', 'views/**', 'audio/**', 'favicon.ico'],
+                src: ['fonts/**', 'images/**', 'views/**', 'audio/**', 'favicon.ico', 'server/***/'],
                 dest: 'dist',
                 expand: true
             },
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
                 src: ['dist/**/*.css', 'dist/**/*.less', 'dist/**/*.sass', 'dist/**/*.scss', '!dist/application.min.css']
             },
             distscripts: {
-                src: ['dist/**/*.js', '!dist/application.min.js']
+                src: ['dist/**/*.js', '!dist/application.min.js', '!dist/server/**']
             }
         },
 

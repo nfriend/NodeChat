@@ -3,8 +3,8 @@
 var WebSocketServer = require('websocket').server;
 var http = require('http');
 var clients = [];
-var messageManager = new MessageManager(250);
-var allowedOrigins = [/^http:\/\/localhost/, /^http:\/\/127.0.0.1/, /^http:\/\/nathanfriend.com/, /^http:\/\/www.nathanfriend.com/, /^http:\/\/nathanfriend.cloudapp.net/, /^http:\/\/www.nathanfriend.cloudapp.net/];
+var messageManager = new MessageManager(50);
+var allowedOrigins = [/^http:\/\/localhost/, /^http:\/\/127.0.0.1/, /^http:\/\/nathanfriend.com/, /^http:\/\/www.nathanfriend.com/, /^http:\/\/dev.nathanfriend.com/, /^http:\/\/nathanfriend.cloudapp.net/, /^http:\/\/www.nathanfriend.cloudapp.net/];
 
 var server = http.createServer(function (request, response) {
     console.log((new Date()) + ' Received request for ' + request.url);
