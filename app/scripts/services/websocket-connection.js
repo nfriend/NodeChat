@@ -13,11 +13,11 @@ angular.module('nodeChat.services')
 
         websocketConnectionInstance.connect = function () {
             if (document.location.hostname === 'nathanfriend.com' || document.location.hostname === 'nathanfriend.io' || document.location.hostname === 'nathanfriend.cloudapp.net') {
-                connection = new WebSocket('ws://nathanfriend.com:8080', 'nodechat-protocol');
+                connection = new WebSocket('wss://nathanfriend.com:8080', 'nodechat-protocol');
             } else if (document.location.hostname === 'dev.nathanfriend.com' || document.location.hostname === 'dev.nathanfriend.io' || document.location.hostname === 'dev.nathanfriend.cloudapp.net') {
-                connection = new WebSocket('ws://dev.nathanfriend.com:8080', 'nodechat-protocol');
+                connection = new WebSocket('wss://dev.nathanfriend.com:8080', 'nodechat-protocol');
             } else {
-                connection = new WebSocket('ws://127.0.0.1:8080', 'nodechat-protocol');
+                connection = new WebSocket('wss://127.0.0.1:8080', 'nodechat-protocol');
             }
 
             connection.onopen = function () {
